@@ -1,8 +1,7 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes -MMD -MP
-SRCS = srcs/main.cpp srcs/ScalarConverter.cpp
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes -g
+SRCS = srcs/main.cpp srcs/Input.cpp srcs/common.cpp srcs/ScalarConverter.cpp
 OBJS = $(SRCS:.cpp=.o)
-DEPS = $(OBJS:.o=.d)
 NAME = converter
 
 all: $(NAME)
@@ -10,13 +9,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
--include $(DEPS)
-
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS) $(DEPS)
+	@rm -f $(OBJS)
 
 fclean: clean
 	@rm -f $(NAME)

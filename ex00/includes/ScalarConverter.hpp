@@ -1,25 +1,17 @@
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
-# include <iostream>
+# include "Input.hpp"
+# include "common.hpp"
 
 class ScalarConverter
 {
-    private:
-        ScalarConverter();
-        ScalarConverter(const ScalarConverter &);
-        ScalarConverter& operator=(const ScalarConverter &);
-        ~ScalarConverter();
-    public:
-        static void convert(std::string);
+	private:
+		ScalarConverter();
+		ScalarConverter &operator=(const ScalarConverter &);
+		ScalarConverter(const ScalarConverter &);
+	public:
+		~ScalarConverter();
+		static void convert(const std::string &literal);
 };
 
-bool input_is_only_digit(const std::string &input);
-bool input_is_char(const std::string &input);
-bool input_has_digits(const std::string &input);
-size_t input_get_char_number(const std::string &input);
-bool input_ends_with_f(const std::string &input);
-bool input_is_signed(const std::string &input);
-bool input_has_one_point(const std::string &input);
-bool input_starts_with_digits(const std::string &input);
-bool input_ends_with_digits(const std::string &input);
 #endif
